@@ -23,7 +23,7 @@ export class FileComponent {
 
   getLoaderProcess(): string {
     if (this.file.process) {
-      return `w-[70%]`;
+      return `bg-[#6611F5] h-[5px] w-[60%]`;
     }
 
     return 'hidden';

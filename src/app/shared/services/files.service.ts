@@ -21,7 +21,8 @@ export class FilesService {
             type: 'MP4',
             size: '11.2 MB',
             description: 'Harry Smith',
-            process: 70,
+            process: Math.floor(Math.random() * 81),
+            isStar: Math.random() >= 0.5,
           };
         });
       })
