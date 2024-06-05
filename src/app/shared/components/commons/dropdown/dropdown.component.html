@@ -1,8 +1,8 @@
-<div class="flex justify-end items-end relative">
+<div class="flex justify-end items-end relative z-50">
   <div class="flex justify-between">
     <div
       class="flex items-center justify-center hover:rounded-md cursor-pointer p-1.5 border border-transparent gap-1.5"
-      (click)="activeDrodown = !activeDrodown"
+      (click)="activeDropdown = !activeDropdown"
       [ngClass]="hoverStyle ? getHoverStyle() : ''"
       id="dropdown"
     >
@@ -17,7 +17,8 @@
 
   <div
     class="w-[130px] bg-[#1D1D23] top-[32px] rounded-[5px] border border-[#9DA2B31F]"
-    [ngClass]="activeDrodown ? 'absolute z-50' : 'hidden'"
+    [ngClass]="activeDropdown ? 'absolute z-50' : 'hidden'"
+    (clickOutside)="activeDropdown = false"
   >
     <ul>
       @for(l of list; track trackList){

@@ -23,7 +23,7 @@ export class FileComponent {
 
   getLoaderProcess(): string {
     if (this.file.process) {
-      return `w-[${this.file.process}%]`;
+      return `w-[70%]`;
     }
 
     return 'hidden';

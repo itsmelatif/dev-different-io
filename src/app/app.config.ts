@@ -6,6 +6,7 @@ import { provideClientHydration } from '@angular/platform-browser';
 import {
   HttpClient,
   provideHttpClient,
+  withFetch,
   withInterceptors,
 } from '@angular/common/http';
 import { coreInterceptor } from './cores/core.interceptor';
@@ -33,7 +34,7 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
     provideClientHydration(),
-    provideHttpClient(withInterceptors([coreInterceptor])),
+    provideHttpClient(withFetch(), withInterceptors([coreInterceptor])),
     importProvidersFrom(TranslateModule.forRoot(I18N_CONFIG)),
   ],
 };

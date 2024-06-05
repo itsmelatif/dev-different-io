@@ -1,11 +1,12 @@
 import { Component, Input } from '@angular/core';
 import { IDropdown } from '../../../types/dropdown';
 import { NgClass, NgIf } from '@angular/common';
+import { ClickOutsideDirective } from '../../../directives/click-outside.directive';
 
 @Component({
   selector: 'app-dropdown',
   standalone: true,
-  imports: [NgClass, NgIf],
+  imports: [NgClass, NgIf, ClickOutsideDirective],
   templateUrl: './dropdown.component.html',
   styleUrl: './dropdown.component.sass',
 })
@@ -16,7 +17,7 @@ export class DropdownComponent {
   @Input() hoverStyle = false;
   @Input() opacity = '';
 
-  activeDrodown = false;
+  activeDropdown = false;
 
   trackList(index: number, course: IDropdown) {
     return course;

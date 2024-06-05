@@ -11,8 +11,8 @@ import { DropdownComponent } from '../../commons/dropdown/dropdown.component';
 })
 export class NavbarComponent {
   listDropdown: IDropdown[] = [
-    { icon: 'assets/icons/share.svg', label: 'Share' },
-    { icon: 'assets/icons/edit.svg', label: 'Rename' },
-    { icon: 'assets/icons/remove.svg', label: 'Delete' },
+    { icon: 'assets/icons/star-fill.svg', label: 'Favourites' },
+    { icon: 'assets/icons/people.svg', label: 'Shared Files' },
+    { icon: 'assets/icons/status.svg', label: 'Status' },
   ];
 }

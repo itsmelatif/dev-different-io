@@ -12,7 +12,7 @@ export class FilesService {
   constructor(private http: HttpClient) {}
 
   fetchData(): Observable<IFile[]> {
-    return this.http.get<IData[]>(Endpoint.photos).pipe(
+    return this.http.get<IData[]>(Endpoint.photos + '?_start=0&_limit=20').pipe(
       map((response) => {
         return response.map((el) => {
           return {
@@ -21,6 +21,7 @@ export class FilesService {
             type: 'MP4',
             size: '11.2 MB',
             description: 'Harry Smith',
+            process: 70,
           };
         });
       })
