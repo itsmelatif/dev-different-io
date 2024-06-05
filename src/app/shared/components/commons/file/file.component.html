@@ -1,0 +1,40 @@
+<app-card
+  [addClass]="'w-full'"
+  [footer]="true"
+  [imageUrl]="file.image"
+  *ngIf="file"
+>
+  <div header>
+    <div class="w-full flex justify-between mb-3">
+      <div class="flex flex-row justify-center items-center gap-2">
+        <div class="bg-black bg-opacity-60 rounded px-2">
+          <span class="text-white text-xs">{{ file.type }}</span>
+        </div>
+        <div
+          class="bg-black bg-opacity-60 rounded pl-1.5 flex justify-center items-center"
+        >
+          <img [src]="'assets/icons/star.svg'" class="w-[24px] h-[24px]" />
+        </div>
+      </div>
+      <app-dropdown
+        [icon]="'assets/icons/dots.svg'"
+        [hoverStyle]="true"
+        [list]="listDropdown"
+        [opacity]="'bg-opacity-100'"
+      ></app-dropdown>
+    </div>
+  </div>
+  <div loader *ngIf="file.process">
+    <div
+      class="w-full h-[5px] bg-white absolute -bottom-[10px] bg-opacity-20 z-10"
+    >
+      <div class="bg-[#6611F5] h-[5px]" [ngClass]="getLoaderProcess()"></div>
+    </div>
+  </div>
+  <div footer>
+    <p class="text-sm text-white mt-2.5">{{ file.name | trimTitle }}</p>
+    <p class="text-xs text-white text-opacity-50 mt-1">
+      {{ file.description | trimTitle }} • {{ file.size }}
+    </p>
+  </div>
+</app-card>

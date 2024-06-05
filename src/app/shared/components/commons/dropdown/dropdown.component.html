@@ -1,0 +1,35 @@
+<div class="flex justify-end items-end relative">
+  <div class="flex justify-between">
+    <div
+      class="flex items-center justify-center hover:rounded-md cursor-pointer p-1.5 border border-transparent gap-1.5"
+      (click)="activeDrodown = !activeDrodown"
+      [ngClass]="hoverStyle ? getHoverStyle() : ''"
+      id="dropdown"
+    >
+      <img [src]="icon" *ngIf="icon.length > 0" />
+      <span
+        *ngIf="label.length > 0"
+        class="text-[15px] text-white font-normal text-opacity-50"
+        >{{ label }}</span
+      >
+    </div>
+  </div>
+
+  <div
+    class="w-[130px] bg-[#1D1D23] top-[32px] rounded-[5px] border border-[#9DA2B31F]"
+    [ngClass]="activeDrodown ? 'absolute z-50' : 'hidden'"
+  >
+    <ul>
+      @for(l of list; track trackList){
+      <li
+        class="text-base text-white hover:bg-[#2E2E35] cursor-pointer text-opacity-70 px-2 py-4"
+      >
+        <a class="flex flex-row gap-2">
+          <img [src]="l.icon" />
+          <span>{{ l.label }}</span></a
+        >
+      </li>
+      }
+    </ul>
+  </div>
+</div>
