@@ -2,25 +2,41 @@ import {
   Directive,
   ElementRef,
   EventEmitter,
-  HostListener,
+  Input,
+  OnDestroy,
+  OnInit,
   Output,
+  Renderer2,
 } from '@angular/core';
 
 @Directive({
   selector: '[appClickOutside]',
   standalone: true,
 })
-export class ClickOutsideDirective {
-  @Output() clickOutside = new EventEmitter<void>();
+export class ClickOutsideDirective implements OnInit, OnDestroy {
+  @Input() appClickOutside!: boolean;
+  @Output() outSideClick: EventEmitter<void> = new EventEmitter();
+  constructor(private element: ElementRef, private renderer: Renderer2) {}
 
-  constructor(private elementRef: ElementRef) {}
+  private listener: (() => void) | undefined;
 
-  @HostListener('document:click', ['$event.target'])
-  public onClick(targetElement: HTMLElement): void {
-    const isClickedInside =
-      this.elementRef.nativeElement.contains(targetElement);
-    if (!isClickedInside) {
-      this.clickOutside.emit();
+  onDocumentClick = (event: Event) => {
+    if (!this.element.nativeElement.parentElement.contains(event.target)) {
+      this.outSideClick.emit();
+    }
+  };
+
+  ngOnInit(): void {
+    this.listener = this.renderer.listen(
+      'document',
+      'click',
+      this.onDocumentClick
+    );
+  }
+
+  ngOnDestroy(): void {
+    if (this.listener) {
+      this.listener();
     }
   }
 }

@@ -1,11 +1,17 @@
 <nav
-  class="w-full h-[56px] bg-secondary flex justify-between px-5 py-[18px] text-white"
+  class="w-full h-14 bg-secondary flex justify-between items-center px-5 py-[18px] text-white"
 >
-  <img src="assets/LOGO.png" alt="LOGO" />
-  <app-dropdown
-    [icon]="'assets/icons/filter.svg'"
-    [hoverStyle]="true"
-    [list]="listDropdown"
-    [label]="'Filters'"
-  ></app-dropdown>
+  <div class="w-1/2">
+    <img src="assets/LOGO.png" alt="LOGO" />
+  </div>
+
+  <div class="w-1/2">
+    <app-dropdown
+      [icon]="'assets/icons/filter.svg'"
+      [hoverStyle]="true"
+      [list]="listDropdown"
+      [label]="'navbar.filters'"
+      [id]="'navbar'"
+    ></app-dropdown>
+  </div>
 </nav>

@@ -16,14 +16,14 @@ import { TrimTitlePipe } from '../../../pipes/trim-title.pipe';
 export class FileComponent {
   @Input() file: IFile = {} as IFile;
   listDropdown: IDropdown[] = [
-    { icon: 'assets/icons/share.svg', label: 'Share' },
-    { icon: 'assets/icons/edit.svg', label: 'Rename' },
-    { icon: 'assets/icons/remove.svg', label: 'Delete' },
+    { icon: 'assets/icons/share.svg', label: 'folders.dropdown.share' },
+    { icon: 'assets/icons/edit.svg', label: 'folders.dropdown.rename' },
+    { icon: 'assets/icons/remove.svg', label: 'folders.dropdown.delete' },
   ];
 
   getLoaderProcess(): string {
     if (this.file.process) {
-      return `bg-[#6611F5] h-[5px] w-[60%]`;
+      return `bg-purpleMain h-[5px] w-[60%]`;
     }
 
     return 'hidden';

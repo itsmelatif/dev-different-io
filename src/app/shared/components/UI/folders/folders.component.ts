@@ -1,21 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { DropdownComponent } from '../../commons/dropdown/dropdown.component';
 import { IDropdown } from '../../../types/dropdown';
 import { IFolder } from '../../../types/folder';
 import { CardComponent } from '../../commons/card/card.component';
+import { TitleHeaderComponent } from '../../commons/title-header/title-header.component';
 
 @Component({
   selector: 'app-folders',
   standalone: true,
-  imports: [DropdownComponent, CardComponent],
+  imports: [DropdownComponent, CardComponent, TitleHeaderComponent],
   templateUrl: './folders.component.html',
   styleUrl: './folders.component.sass',
 })
 export class FoldersComponent {
+  @Input() title = '';
   listDropdown: IDropdown[] = [
-    { icon: 'assets/icons/share.svg', label: 'Share' },
-    { icon: 'assets/icons/edit.svg', label: 'Rename' },
-    { icon: 'assets/icons/remove.svg', label: 'Delete' },
+    { icon: 'assets/icons/share.svg', label: 'folders.dropdown.share' },
+    { icon: 'assets/icons/edit.svg', label: 'folders.dropdown.rename' },
+    { icon: 'assets/icons/remove.svg', label: 'folders.dropdown.delete' },
   ];
 
   listFolders: IFolder[] = [

@@ -1,3 +1,19 @@
 {
-  "recentUploadFile": "Recently uploaded files"
+  "recentUploadFile": "Recently uploaded files",
+  "navbar": {
+    "filters": "Filters",
+    "dropdown": {
+      "favourites": "Favourites",
+      "sharedFiles": "Shared Files",
+      "status": "Status"
+    }
+  },
+  "folders": {
+    "title": "Folders",
+    "dropdown": {
+      "share": "Share",
+      "rename": "Rename",
+      "delete": "Delete"
+    }
+  }
 }

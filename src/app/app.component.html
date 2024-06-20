@@ -1,7 +1,7 @@
 <main class="w-full bg-primary">
   <app-navbar></app-navbar>
   <div class="w-full px-10 py-12">
-    <app-folders></app-folders>
+    <app-folders [title]="'folders.title' | translate"></app-folders>
     <div class="w-full mt-12">
       <app-uploded-files
         [title]="'recentUploadFile' | translate"

@@ -1,23 +1,29 @@
+<app-title-header>{{ title }}</app-title-header>
 <div class="w-full flex flex-row flex-wrap gap-4">
   @for(item of listFolders; track trackList){
-  <app-card [addClass]="'md:min-w-[204px] !w-full'">
-    <div header>
-      <div class="w-full flex justify-between mb-3">
-        <img [src]="item.icon" />
-        <app-dropdown
-          [icon]="'assets/icons/dots.svg'"
-          [hoverStyle]="true"
-          [list]="listDropdown"
-        ></app-dropdown>
+  <div class="w-full md:w-[204px]">
+    <app-card>
+      <div header>
+        <div class="w-full flex justify-between mb-3 py-2 px-2.5">
+          <img [src]="item.icon" />
+          <app-dropdown
+            [id]="'folder' + item.name"
+            [icon]="'assets/icons/dots.svg'"
+            [hoverStyle]="true"
+            [list]="listDropdown"
+          ></app-dropdown>
+        </div>
       </div>
-    </div>
 
-    <div description>
-      <p class="text-sm text-white font-medium">{{ item.name }}</p>
-      <p class="text-xs text-white text-opacity-50 mt-1">
-        {{ item.description }} • {{ item.size }}
-      </p>
-    </div>
-  </app-card>
+      <div description>
+        <div class="w-full py-2 px-2.5">
+          <p class="text-sm text-white font-medium">{{ item.name }}</p>
+          <p class="text-xs text-white text-opacity-50 mt-1">
+            {{ item.description }} • {{ item.size }}
+          </p>
+        </div>
+      </div>
+    </app-card>
+  </div>
   }
 </div>

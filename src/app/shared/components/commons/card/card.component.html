@@ -1,28 +1,23 @@
 <div
-  class="bg-[#1D1D23] border border-[#3D3D42] rounded-[10px] hover:bg-[#2E2E35] relative"
-  [ngClass]="addClass"
+  class="w-full relative bg-blueMain border border-grayMain rounded-[10px] hover:bg-graySecondary relative"
 >
-  <div
-    class="w-full h-[102px] rounded-t-[10px] relative z-20"
-    id="image"
-    [ngClass]="{ 'h-[102px]': imageUrl.length > 0 }"
-  >
-    <img
-      [src]="imageUrl"
-      class="absolute top-0 z-10 w-full !h-[102px] !rounded-t-[10px]"
-      *ngIf="imageUrl.length > 0"
-    />
-    <div class="relative"></div>
-    <div class="px-2 py-2.5 relative z-50">
-      <ng-content select="[header]"></ng-content>
-      <ng-content select="[description]"></ng-content>
-    </div>
-    <div class="relative z-20">
-      <ng-content select="[loader]"></ng-content>
-    </div>
+  <div class="w-full">
+    <ng-content select="[header]"></ng-content>
+    <ng-content select="[description]"></ng-content>
   </div>
 
-  <div class="w-full border-t border-[#3D3D42] px-3 py-2.5" *ngIf="footer">
+  <div
+    class="w-full h-1.5 bg-white -bottom-10 bg-opacity-20 z-10"
+    *ngIf="loader && percentage > 0"
+  >
+    <div
+      [style.width]="getPercentage()"
+      [style.background]="'#6611F5'"
+      [style.height]="'5px'"
+    ></div>
+  </div>
+
+  <div class="w-full border-t border-grayMain px-3 py-2.5" *ngIf="footer">
     <ng-content select="[footer]"></ng-content>
   </div>
 </div>

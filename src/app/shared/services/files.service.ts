@@ -9,6 +9,18 @@ import { IFile } from '../types/file';
   providedIn: 'root',
 })
 export class FilesService {
+  private listDummyImages = [
+    '1.png',
+    '2.png',
+    '3.png',
+    '4.png',
+    '5.png',
+    '6.png',
+    '7.png',
+    '8.png',
+    '9.png',
+    '10.png',
+  ];
   constructor(private http: HttpClient) {}
 
   fetchData(): Observable<IFile[]> {
@@ -16,7 +28,7 @@ export class FilesService {
       map((response) => {
         return response.map((el) => {
           return {
-            image: el.url,
+            image: this.getRandomImage(),
             name: el.title,
             type: 'MP4',
             size: '11.2 MB',
@@ -27,5 +39,11 @@ export class FilesService {
         });
       })
     );
+  }
+
+  private getRandomImage() {
+    const randomIndex = Math.floor(Math.random() * this.listDummyImages.length);
+    const randomImage = this.listDummyImages[randomIndex];
+    return `assets/dummy-images/${randomImage}`;
   }
 }
